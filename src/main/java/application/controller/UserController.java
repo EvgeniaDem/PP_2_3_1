@@ -21,7 +21,6 @@ public class UserController {
         this.userDao = userDao;
     }
 
-    // У Алишева это метод index
     @GetMapping()                                // автоматом при наборе /users будем пападать в этот метод
     public String index(Model model) {             // Model передаем, чтобы Spring Framework внедрил эту модель со списком
         try {
@@ -29,17 +28,17 @@ public class UserController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return "users/getAll";
+        return "users/index";
     }
 
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") Long id, Model model) {
         try {
-            model.getAttribute("users", userDao.show(id));
+            model.addAttribute("user", userDao.show(id));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return "person/showUserById";
+        return "users/show";
     }
 }
