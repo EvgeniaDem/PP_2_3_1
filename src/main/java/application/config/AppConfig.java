@@ -53,7 +53,7 @@ public class AppConfig {
     public Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect"); // разобраться, что это
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
 
         return properties;
     }
