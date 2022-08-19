@@ -11,10 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="07fd5a28-500e-4c1e-b9e9-524bca841005" name="Changes" comment="2nd commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/service/UserServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/service/UserServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/dao/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/service/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,25 +63,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Preproject/PP_2_3_1&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.6448276&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;015890f1d2cfd8f8910e3fcc7ee1f4fc&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Preproject/PP_2_3_1_v3",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.6448276",
+    "spring.configuration.checksum": "015890f1d2cfd8f8910e3fcc7ee1f4fc"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Preproject\PP_2_3_1\src\main\java" />
@@ -277,7 +275,7 @@
       <workItem from="1660913535126" duration="244000" />
       <workItem from="1660913789777" duration="573000" />
       <workItem from="1660914400903" duration="596000" />
-      <workItem from="1660916889106" duration="3184000" />
+      <workItem from="1660916889106" duration="4574000" />
     </task>
     <task id="LOCAL-00001" summary="1st commit">
       <created>1660913850331</created>
@@ -307,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660914775046</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="2nd commit">
+      <created>1660920086569</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1660920086569</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
