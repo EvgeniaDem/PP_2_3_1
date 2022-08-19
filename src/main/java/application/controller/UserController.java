@@ -1,25 +1,45 @@
 package application.controller;
 
+import application.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.sql.SQLException;
 
 @Controller
 @RequestMapping("/users")                       // все адреса в контроллере будут начинаться со /users
 public class UserController {
 
-    // получим всем юзеров из DAO и далее передадим на View
-    @GetMapping()                               // автоматом при наборе /users будем пападать в этот метод
-    public String index(Model model) {             // Model передаем, чтобы Spring Framework внедрил эту модель со списком
-        return null;                               // пока null, т.к. пока нет DAO класса
+    private final UserDao userDao;
+
+    @Autowired
+    public UserController(UserDao userDao) {
+        this.userDao = userDao;
     }
 
-// получение юзера по его id из DAO и далее передадим на View
-    @GetMapping("/{id}")                             // в браузере надо будет набирать /people/id, чтобы попать в метод
-    public String show(@PathVariable("id") int id, Model model) {    // id - какой дадим на вход, того и вытащим из БЮ
-        return null;
+    // У Алишева это метод index
+    @GetMapping()                                // автоматом при наборе /users будем пападать в этот метод
+    public String index(Model model) {             // Model передаем, чтобы Spring Framework внедрил эту модель со списком
+        try {
+            model.addAttribute("users", userDao.index());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return "users/getAll";
+    }
+
+
+    @GetMapping("/{id}")
+    public String show(@PathVariable("id") Long id, Model model) {
+        try {
+            model.getAttribute("users", userDao.show(id));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return "person/showUserById";
     }
 }
