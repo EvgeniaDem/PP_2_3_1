@@ -9,25 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07fd5a28-500e-4c1e-b9e9-524bca841005" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/dao/UserDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/service/UserServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/service/UserServerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-    </list>
+    <list default="true" id="07fd5a28-500e-4c1e-b9e9-524bca841005" name="Changes" comment="1st commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +66,7 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "D:/Preproject/PP_2_3_1",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.6448276",
     "spring.configuration.checksum": "015890f1d2cfd8f8910e3fcc7ee1f4fc"
@@ -287,7 +269,16 @@
       <workItem from="1660851808410" duration="2139000" />
       <workItem from="1660855622394" duration="2640000" />
       <workItem from="1660913535126" duration="244000" />
+      <workItem from="1660913789777" duration="316000" />
     </task>
+    <task id="LOCAL-00001" summary="1st commit">
+      <created>1660913850331</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660913850331</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,5 +294,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1st commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="1st commit" />
   </component>
 </project>
