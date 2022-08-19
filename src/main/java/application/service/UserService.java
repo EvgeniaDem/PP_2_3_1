@@ -1,4 +1,4 @@
 package application.service;
 
-public interface UserServer {
+public interface UserService {
 }
