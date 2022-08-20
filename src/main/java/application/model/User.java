@@ -14,7 +14,7 @@ public class User {
     private String name;
 
     @Column
-    private String Surname;
+    private String surname;
 
     public User() {
     }
@@ -22,7 +22,7 @@ public class User {
     public User(Long id, String name, String surname) {
         this.id = id;
         this.name = name;
-        Surname = surname;
+        this.surname = surname;
     }
 
     public Long getId() {
@@ -42,10 +42,10 @@ public class User {
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        this.surname = surname;
     }
 }

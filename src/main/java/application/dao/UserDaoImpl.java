@@ -3,7 +3,6 @@ package application.dao;
 import application.model.User;
 import org.springframework.stereotype.Component;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 

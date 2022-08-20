@@ -41,11 +41,9 @@ public class UserController {
         return "users/show";
     }
 
-    @GetMapping("/new")                      // по запросу "/new" в браузер вернется форма для создания нового юзера
-    public String newUser(Model model) {      // используем Get-запрос для получения новой формы
-        model.addAttribute("user", new User());
-
-        return "users/new";                     // возвращаем название Thymeleaf-шаблона, где у нас будет лежать форма для создания нового юзера
+    @GetMapping("/new")                                           // по запросу "/new" в браузер вернется форма для создания нового юзера
+    public String newUser(@ModelAttribute("user") User user) {       // используем Get-запрос для получения новой формы
+        return "users/new";                                          // возвращаем название Thymeleaf-шаблона, где у нас будет лежать форма для создания нового юзера
     }
 
     @PostMapping()
@@ -55,6 +53,6 @@ public class UserController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return "redirect:/users";                            // указываем адрес, на который мы хотим перенаправить пользоватея
+        return "redirect:/users";                                      // указываем адрес, на который мы хотим перенаправить пользоватея
     }
 }
