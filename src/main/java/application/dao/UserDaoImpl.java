@@ -9,7 +9,7 @@ import java.util.List;
 //@Repository
 @Component
 public class UserDaoImpl implements UserDao {
-    private static Long PEOPLE_COUNT;
+    private static Long PEOPLE_COUNT = 0L;
     private List<User> users;           // пока работаю со списком по видео-уроку, потом будет БД
 
     {
@@ -35,5 +35,17 @@ public class UserDaoImpl implements UserDao {
     public void save(User user) {
         user.setId(++PEOPLE_COUNT);
         users.add(user);
+    }
+
+    @Override
+    public void update(Long id, User updatedUser) {
+        User userToBeUpdated = show(id);              // по id находим человека. которого хотим update и помещаем его в переменную toBeUpdated
+        userToBeUpdated.setName(updatedUser.getName());
+        userToBeUpdated.setSurname(updatedUser.getSurname());
+    }
+
+    @Override
+    public void delete(Long id) {
+        users.removeIf(p -> p.getId() == id);     // если сравнение == true, то удаляем этого человека из списка
     }
 }

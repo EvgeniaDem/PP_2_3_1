@@ -1,6 +1,10 @@
 package application.config;
 
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {    // этот класс заменяет web.xml
 
@@ -27,4 +31,15 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
         return new String[]{"/"};            // значит, что ВСЕ HTML запросы будут посылаться на Dispatcherservlet
     }
 
+    @Override
+    public void onStartup(ServletContext aServletContext) throws ServletException{
+        super.onStartup(aServletContext);
+        registerHiddenFieldFilter(aServletContext);
+    }
+
+    //добавляем Filter, чтобы Спринг прочел скрытые методы (PATCH. а не POST)
+    private void registerHiddenFieldFilter(ServletContext aContext) {
+        aContext.addFilter("hiddenHttpMethodFilter",
+                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
+    }
 }

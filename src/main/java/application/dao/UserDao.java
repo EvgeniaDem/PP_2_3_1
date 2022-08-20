@@ -12,4 +12,8 @@ public interface UserDao {
     User show (Long id) throws SQLException;
 
     public void save (User user) throws SQLException;
+
+    public void update (Long id, User updatedUser);
+
+    public void delete(Long id);
 }
