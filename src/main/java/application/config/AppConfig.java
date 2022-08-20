@@ -65,13 +65,7 @@ public class AppConfig {
         dataSource.setUrl(env.getProperty("db.url"));
         dataSource.setUsername(env.getProperty("db.username"));
         dataSource.setPassword(env.getProperty("db.password"));
+
         return dataSource;
     }
-
-   /*@Bean
-   public HibernateTransactionManager getTransactionManager() {
-      HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-      transactionManager.setSessionFactory(getSessionFactory().getObject());
-      return transactionManager;
-   }*/
 }

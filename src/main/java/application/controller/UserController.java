@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
 
 @Controller
-//@RequestMapping("/")                       // все адреса в контроллере будут начинаться со /users
+@RequestMapping("/users")                       // все адреса в контроллере будут начинаться со /users
 public class UserController {
 
     @Autowired
@@ -44,18 +44,20 @@ public class UserController {
 
     @GetMapping("/new")
     // по запросу "/new" в браузер вернется форма для создания нового юзера
-    public String newUser(@ModelAttribute("user") User user) {       // используем Get-запрос для получения новой формы
+    public String newUser(Model model) {
+        System.out.println("check");
+        model.addAttribute("user", new User());
         return "users/new";                                          // возвращаем название Thymeleaf-шаблона, где у нас будет лежать форма для создания нового юзера
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("user") User user) {       // этим методом будем передавать POST-запрос
+    public String create(@ModelAttribute("user") User user) {
         try {
             userDao.save(user);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return "redirect:/users";                                      // указываем адрес, на который мы хотим перенаправить пользоватея
+        return "redirect:/users/users";                                      // указываем адрес, на который мы хотим перенаправить пользоватея
     }
 
     @GetMapping("/{id}/edit")
@@ -71,12 +73,14 @@ public class UserController {
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
         userDao.update(id, user);
-        return "redirect:/users";
+        return "redirect:/users/users";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id) {
+        System.out.println("deleteFirst");
         userDao.delete(id);
-        return "redirect:/users";
+        System.out.println("deleteSecond");
+        return "redirect:/users/users";
     }
 }

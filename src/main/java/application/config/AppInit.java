@@ -28,16 +28,15 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/"};            // значит, что ВСЕ HTML запросы будут посылаться на Dispatcherservlet
+        return new String[]{"/"};                  // значит, что ВСЕ HTML запросы будут посылаться на Dispatcherservlet
     }
 
     @Override
-    public void onStartup(ServletContext aServletContext) throws ServletException{
+    public void onStartup(ServletContext aServletContext) throws ServletException {
         super.onStartup(aServletContext);
         registerHiddenFieldFilter(aServletContext);
     }
 
-    //добавляем Filter, чтобы Спринг прочел скрытые методы (PATCH. а не POST)
     private void registerHiddenFieldFilter(ServletContext aContext) {
         aContext.addFilter("hiddenHttpMethodFilter",
                 new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
