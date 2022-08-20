@@ -16,10 +16,10 @@ public class UserDaoImpl implements UserDao {
     {
         users = new ArrayList<>();
 
-        users.add(new User(++PEOPLE_COUNT, "Tom", 56));
-        users.add(new User(++PEOPLE_COUNT, "Ann", 24));
-        users.add(new User(++PEOPLE_COUNT, "Peter", 74));
-        users.add(new User(++PEOPLE_COUNT, "Kate", 16));
+        users.add(new User(++PEOPLE_COUNT, "Tom", "Taylor"));
+        users.add(new User(++PEOPLE_COUNT, "Ann", "Hields"));
+        users.add(new User(++PEOPLE_COUNT, "Peter", "Glover"));
+        users.add(new User(++PEOPLE_COUNT, "Kate", "Harrison"));
     }
 
     @Override
@@ -30,5 +30,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User show(Long id) {
         return users.stream().filter(user -> user.getId() == id).findAny().orElse(null);
+    }
+
+    @Override
+    public void save(User user) {
+        user.setId(++PEOPLE_COUNT);
+        users.add(user);
     }
 }

@@ -10,4 +10,6 @@ public interface UserDao {
     List<User> index() throws SQLException;
 
     User show (Long id) throws SQLException;
+
+    public void save (User user) throws SQLException;
 }

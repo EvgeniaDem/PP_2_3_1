@@ -1,12 +1,11 @@
 package application.controller;
 
 import application.dao.UserDao;
+import application.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 
@@ -35,10 +34,27 @@ public class UserController {
     @GetMapping("/{id}")
     public String show(@PathVariable("id") Long id, Model model) {
         try {
-            model.addAttribute("user", userDao.show(id));
+            model.addAttribute("user", userDao.show(id));   // "user" - это ключ
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return "users/show";
+    }
+
+    @GetMapping("/new")                      // по запросу "/new" в браузер вернется форма для создания нового юзера
+    public String newUser(Model model) {      // используем Get-запрос для получения новой формы
+        model.addAttribute("user", new User());
+
+        return "users/new";                     // возвращаем название Thymeleaf-шаблона, где у нас будет лежать форма для создания нового юзера
+    }
+
+    @PostMapping()
+    public String create(@ModelAttribute("user") User user) {       // этим методом будем передавать POST-запрос
+        try {
+            userDao.save(user);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return "redirect:/users";                            // указываем адрес, на который мы хотим перенаправить пользоватея
     }
 }

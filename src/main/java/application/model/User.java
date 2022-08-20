@@ -14,15 +14,15 @@ public class User {
     private String name;
 
     @Column
-    private int age;
+    private String Surname;
 
-/*    public User() {                    // у Алишева нет no-arg конструктора, и @Entity тоже нет
-    }*/
+    public User() {
+    }
 
-    public User(Long id, String name, int age) {
+    public User(Long id, String name, String surname) {
         this.id = id;
         this.name = name;
-        this.age = age;
+        Surname = surname;
     }
 
     public Long getId() {
@@ -41,11 +41,11 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public String getSurname() {
+        return Surname;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setSurname(String surname) {
+        Surname = surname;
     }
 }
