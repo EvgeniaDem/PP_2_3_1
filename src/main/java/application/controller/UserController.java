@@ -1,7 +1,7 @@
 package application.controller;
 
-import application.dao.UserDao;
 import application.model.User;
+import application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,38 +14,30 @@ import java.sql.SQLException;
 public class UserController {
 
     @Autowired
-    private final UserDao userDao;
+    private final UserService userService;
 
-
-    public UserController(UserDao userDao) {
-        this.userDao = userDao;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/users")                                // автоматом при наборе /users будем пападать в этот метод
-    public String index(Model model) {             // Model передаем, чтобы Spring Framework внедрил эту модель со списком
-        try {
-            model.addAttribute("users", userDao.index());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public String getAll(Model model) {                     // Model передаем, чтобы Spring Framework внедрил эту модель со списком
+        model.addAttribute("users", userService.getAll());
         return "users/index";
     }
-
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") Long id, Model model) {
         try {
-            model.addAttribute("user", userDao.show(id));   // "user" - это ключ
+            model.addAttribute("user", userService.getById(id));       // "user" - это ключ
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return "users/show";
     }
 
-    @GetMapping("/new")
-    // по запросу "/new" в браузер вернется форма для создания нового юзера
+    @GetMapping("/new")                                           // по запросу "/new" в браузер вернется форма для создания нового юзера
     public String newUser(Model model) {
-        System.out.println("check");
         model.addAttribute("user", new User());
         return "users/new";                                          // возвращаем название Thymeleaf-шаблона, где у нас будет лежать форма для создания нового юзера
     }
@@ -53,7 +45,7 @@ public class UserController {
     @PostMapping()
     public String create(@ModelAttribute("user") User user) {
         try {
-            userDao.save(user);
+            userService.save(user);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -63,7 +55,7 @@ public class UserController {
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") Long id) {
         try {
-            model.addAttribute("user", userDao.show(id));   // мы получаем человека по id, кладем его в Модель и к этой Модели мы будем иметь доступ в нашем View
+            model.addAttribute("user", userService.getById(id));   // мы получаем человека по id, кладем его в Модель и к этой Модели мы будем иметь доступ в нашем View
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -72,15 +64,13 @@ public class UserController {
 
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
-        userDao.update(id, user);
+        userService.update(id, user);
         return "redirect:/users/users";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id) {
-        System.out.println("deleteFirst");
-        userDao.delete(id);
-        System.out.println("deleteSecond");
+        userService.delete(id);
         return "redirect:/users/users";
     }
 }

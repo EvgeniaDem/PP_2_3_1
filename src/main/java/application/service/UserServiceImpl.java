@@ -1,8 +1,8 @@
 package application.service;
 
 import application.dao.UserDao;
-import application.dao.UserDaoImpl;
 import application.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -10,16 +10,17 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private final UserDao userDao = new UserDaoImpl();
+    @Autowired
+    private UserDao userDao;
 
     @Override
-    public List<User> index() throws SQLException {
-        return userDao.index();
+    public List<User> getAll() {
+        return userDao.getAll();
     }
 
     @Override
-    public User show(Long id) throws SQLException {
-        return userDao.show(id);
+    public User getById(Long id) throws SQLException {
+        return userDao.getById(id);
     }
 
     @Override
@@ -28,8 +29,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void update(Long id, User updatedUser) {
-        userDao.update(id, updatedUser);
+    public User update(Long id, User updatedUser) {
+        return userDao.update(id, updatedUser);
     }
 
     @Override

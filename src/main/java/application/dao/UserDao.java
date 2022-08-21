@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface UserDao {
 
-    List<User> index() throws SQLException;
+    List<User> getAll();
 
-    User show (Long id) throws SQLException;
+    User getById(Long id) throws SQLException;
 
-    public void save (User user) throws SQLException;
+    void save(User user) throws SQLException;
 
-    public void update (Long id, User updatedUser);
+    User update(Long id, User updatedUser);
 
-    public void delete(Long id);
+    void delete(Long id);
 }
