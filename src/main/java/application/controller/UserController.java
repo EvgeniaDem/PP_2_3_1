@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
 
 @Controller
-@RequestMapping("/users")                                     // все адреса в контроллере будут начинаться со /users
+@RequestMapping("/users")                                  // связывает url-адрес со всеми методами класса Controller
 public class UserController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/users")                                     // автоматом при наборе /users будем пападать в этот метод
+    @GetMapping("/users")                                     // это часть url, автоматом при наборе /users будем пападать в этот метод
     public String getAllUsers(Model model) {                     // Model передаем, чтобы Spring Framework внедрил эту модель со списком
         model.addAttribute("users", userService.getAllUsers());
         return "users/index";
